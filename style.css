@@ -1,0 +1,226 @@
+
+.card-hover .reveal {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    padding: 0;
+}
+
+.card-hover:hover .reveal {
+    height: auto;
+    visibility: visible;
+    opacity: 10;
+    transition: opacity 1s ease;
+}
+
+.card-container {
+    perspective: 700px;
+}
+
+.card-flip,
+.card-container {
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
+
+.card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.back {
+    transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
+
+.front {
+    grid-area: frontAndBack;
+}
+
+.back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+}
+
+.card-container {
+    display: grid;
+    perspective: 700px;
+}
+
+.zoom {
+    transition: transform .2s;
+    width: 200px;
+    height: 200px;
+    
+  }
+  
+  .zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+  }
+
+
+
+
+  #container {
+    width: 80%;
+    position: relative;
+    left: 10%
+}
+
+#heading {
+    width: 100%;
+    height: 80px;
+    background-color: cadetblue;
+    color: white;
+    position: relative;
+    top: -20px
+}
+
+h1 {
+    font-family: 'Noto Sans HK', sans-serif;
+    text-align: center;
+    position: relative;
+    top: 25px
+}
+
+.team {
+    width: 350px;
+    height: 330px;
+    border-radius: 8px
+}
+
+.item {
+    overflow: hidden;
+    width: 33.33335%;
+    float: left;
+    height: 330px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 8px
+}
+
+.front1 {
+    float: left;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateX(0deg);
+    transition: 1.5s;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 8px
+}
+
+.back1 {
+    width: 97%;
+    height: 350px;
+    background-color: #bcaaa4;
+    position: relative;
+    top: -350px;
+    transform: perspective(600px) rotateX(180deg);
+    transition: 1.5s;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 0 35px brown;
+    border-radius: 8px
+}
+
+.title {
+    position: relative;
+    top: 110px;
+    text-align: center;
+    font-size: 30px;
+    color: #f4511e
+}
+
+.job {
+    position: relative;
+    top: 90px;
+    text-align: center;
+    font-size: 25px
+}
+
+@keyframes move {
+    0% {
+        position: relative;
+        top: 0px
+    }
+
+    100% {
+        position: relative;
+        top: 80px
+    }
+}
+
+.social {
+    position: relative;
+    top: 90px;
+    color: black;
+    margin-right: 10px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    left: 34%
+}
+
+.fa-facebook-square:hover {
+    color: #3B558D
+}
+
+.fa-linkedin:hover {
+    color: #007BB6
+}
+
+.fa-twitter-square:hover {
+    color: #2CAAE1
+}
+
+.item:hover>.front1 {
+    transform: perspective(600px) rotateX(-180deg)
+}
+
+.item:hover>.back1 {
+    transform: perspective(600px) rotateX(0deg)
+}
+
+@media only screen and (max-width:900px) {
+    .item {
+        width: 49%;
+        position: relative;
+        left: 3.5%
+    }
+
+    .front1,
+    .back1 {
+        width: 90%
+    }
+}
+
+@media only screen and (max-width:650px) {
+    .item {
+        width: 100%;
+        position: relative;
+        left: 0
+    }
+
+    .front1,
+    .back1 {
+        width: 100%
+    }
+
+    .team {
+        width: 600px
+    }
+}
